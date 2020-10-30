@@ -1,0 +1,13 @@
+# Files
+text.txt
+README_ES.md
+embb.c
+InitThreads.xc
+
+# Binary files
+.*.exe
+.*.dll
+.*.so
+
+# Dirs
+.vscode

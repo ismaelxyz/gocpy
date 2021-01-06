@@ -1,5 +1,6 @@
 package gocpy
 
+//go:generate go run script/variadic.go
 
 /*
 #include "Python.h"
@@ -24,12 +25,8 @@ var (
 	Py_GE = int(C.Py_GE)
 )
 
-// Boleans and NoneType vars
-var (
-	Py_None  = togo(C.Py_None)
-	Py_True  = togo(C.Py_True)
-	Py_False = togo(C.Py_False)
-)
+//None : https://docs.python.org/3/c-api/none.html#c.Py_None
+var Py_None = togo(C.Py_None)
 
 //PyObject : https://docs.python.org/3/c-api/structures.html?highlight=pyobject#c.PyObject
 type PyObject C.PyObject
@@ -260,4 +257,10 @@ func (pyObject *PyObject) Dir() *PyObject {
 //GetIter : https://docs.python.org/3/c-api/object.html#c.PyObject_GetIter
 func (pyObject *PyObject) GetIter() *PyObject {
 	return togo(C.PyObject_GetIter(toc(pyObject)))
+}
+
+//PyPrint : https://docs.python.org/3/c-api/object.html#c.PyObject_Print
+func PyPrint(op *PyObject, fp *C.FILE, flags int) int {
+    r := C.PyObject_Print(toc(op), fp, C.int(flags))
+	return int(r)
 }

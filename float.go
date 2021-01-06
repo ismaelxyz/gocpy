@@ -5,9 +5,7 @@ package gocpy
 #include "macro.h"
 */
 import "C"
-import (
-	"unsafe"
-)
+import "unsafe"
 
 //Float : https://docs.python.org/3/c-api/float.html#c.PyFloat_Type
 var Float = togo((*C.PyObject)(unsafe.Pointer(&C.PyFloat_Type)))
@@ -32,11 +30,6 @@ func PyFloat_FromString(str *PyObject) *PyObject {
 	return togo(C.PyFloat_FromString(toc(str)))
 }
 
-//PyFloat_FromInteger : https://docs.python.org/3/c-api/float.html#c.PyFloat_FromString
-func PyFloat_FromInteger(pyInt *PyObject) *PyObject {
-	return togo(C.PyFloat_FromString(toc(pyInt.Str())))
-}
-
 //PyFloat_AsDouble : https://docs.python.org/3/c-api/float.html#c.PyFloat_AsDouble
 func PyFloat_AsDouble(obj *PyObject) float64 {
 	return float64(C.PyFloat_AsDouble(toc(obj)))
@@ -56,10 +49,3 @@ func PyFloat_GetMax() float64 {
 func PyFloat_GetMin() float64 {
 	return float64(C.PyFloat_GetMin())
 }
-
-/*
-//PyFloat_ClearFreeList : https://docs.python.org/3/c-api/float.html#c.PyFloat_ClearFreeList
-func PyFloat_ClearFreeList() int {
-	return int(C.PyFloat_ClearFreeList())
-}
-*/

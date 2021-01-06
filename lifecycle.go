@@ -9,8 +9,7 @@ import (
 	"unsafe"
 )
 
-// The argument for Py_SetProgramName, Py_SetPath and Py_SetPythonHome should
-// point to a zero-terminated wide character string in static storage
+// The argument for Py_SetProgramName, Py_SetPath and Py_SetPythonHome should point to a zero-terminated wide character string in static storage
 // whose contents will not change for the duration of the program’s execution
 var (
 	programName *C.wchar_t

@@ -1,0 +1,10 @@
+Las pruebas aun no estan listas por lo que se recomienda no usarlas o editarlas
+con precausión.
+
+PyObject_Print
+	return int(C.PyObject_Print(o, C.stdout, 0))
+    // os.Stdout
+
+    /home/Overlord/Projects/GoCPy/examples/list/PythonDoc/Include/cpython/object.h
+    /home/Overlord/Projects/GoCPy/examples/list/PythonDoc/Objects/object.c
+    int PyObject_Print(PyObject *op, FILE *fp, int flags)

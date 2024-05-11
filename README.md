@@ -1,5 +1,6 @@
 # GoCPy
-
+> The Gocpy project was archived on 5/11/2024. I don't see myself working any more on this beautiful project, it seems very noble to me but I have other duties to attend to and this requires a commitment that I don't want to face. It has been a pleasure : )
+> 
 **Currently supports python-3.9.x+ only.**
 
 Golang bindings for the C-API of CPython3.
